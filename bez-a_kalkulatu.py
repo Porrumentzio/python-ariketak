@@ -1,13 +1,19 @@
+# Zehaztapenak
 bez=0
+motak_zer = ["1", "orokorra", "2", "murrriztua", "3", "oso murriztua"]
+    #Eragiketak
+gehitu_eragi_zer = ["1", "prezioari beza gehitu", "gehitu"]
+atera_eragi_zer = ["2", "preziotik beza atera", "atera"]
 
-print("Hau produktuen BEZa kalkulatzen lagunduko dizun programa bat da.\nLehenik hautatu zure produktua zein lehentasun-mailakoa den:\n")
+# Hasiera eta motak
+print("\nHau produktuen BEZa kalkulatzen lagunduko dizun programa bat da.\nLehenik hautatu zure produktua zein lehentasun-mailakoa den:\n")
 print("1) Orokorra\n2) Murriztua\n3) Oso murriztua\n")
 
-mota=input("Hautatu horietako bat: ").lower()
+mota=input("Hautatu horietako bat: ").lower().strip()
 
-while mota!="1" and mota!="2" and mota!="3" and mota!="orokorra" and mota!="murriztua" and mota!="oso murriztua":
+while mota not in motak_zer:
     print("Ez dezu aukera baliogarririk idatzi. Ziurtatu ondo idatzi dezula.")
-    mota=input("Saiatu berriro: ")
+    mota=input("Saiatu berriro: ").lower().strip()
 
 if mota=="1" or mota=="orokorra":
     bez=0.21
@@ -20,7 +26,24 @@ elif mota=="3" or mota=="oso murriztua":
     ehun=4
 
 
-prezioa=float(input(f"\nSartu BEZa (%{ehun}) aplikatu nahi diozun produktuaren prezioa: "))
-gehigarria=prezioa*bez
+# Eragiketa aukeratu
+print("\nZein eragiketa mota egin nahi duzu?\n")
+print("1) Prezioari BEZa gehitu\n2) Preziotik BEZa atera\n")
+eragiketa=input("Hautatu horietako bat: ").lower().strip()
 
-print(f"    BEZa gehituta duen prezioa: {prezioa+gehigarria}")
+while eragiketa not in gehitu_eragi_zer and eragiketa not in atera_eragi_zer:
+    print("Ez dezu aukera baliogarririk idatzi. Ziurtatu ondo idatzi dezula.")
+    eragiketa=input("Saiatu berriro: ").lower().strip()
+
+
+if eragiketa in gehitu_eragi_zer:
+    prezioa=float(input(f"\nSartu BEZa (%{ehun}) aplikatu nahi diozun produktuaren prezioa: "))
+    zerga=prezioa*bez
+
+    print(f"    BEZa gehituta duen prezioa: {prezioa+zerga}")
+
+elif eragiketa in atera_eragi_zer:
+    prezioa=float(input(f"\nSartu BEZa (%{ehun}) atera nahi diozun produktuaren prezioa: "))
+    zerga=prezioa*bez
+
+    print(f"    Prezio originaletik BEZa hau da: {zerga}")
