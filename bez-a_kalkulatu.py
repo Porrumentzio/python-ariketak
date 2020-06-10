@@ -40,10 +40,10 @@ if eragiketa in gehitu_eragi_zer:
     prezioa=float(input(f"\nSartu BEZa (%{ehun}) aplikatu nahi diozun produktuaren prezioa: "))
     zerga=prezioa*bez
 
-    print(f"    BEZa gehituta duen prezioa: {prezioa+zerga}")
+    print(f"    BEZa gehituta duen prezioa: {prezioa+zerga}€")
 
 elif eragiketa in atera_eragi_zer:
     prezioa=float(input(f"\nSartu BEZa (%{ehun}) atera nahi diozun produktuaren prezioa: "))
     zerga=prezioa*bez
 
-    print(f"    Prezio originaletik BEZa hau da: {zerga}")
+    print(f"    Prezio originaletik BEZa hau da: {zerga}€")
